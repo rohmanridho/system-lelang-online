@@ -64,13 +64,16 @@
                             </span>
                         </td>
                         <td class="px-4 py-3">
+                            @php
+                                $isOpen = $auction->user_id != null && $auction->final_price != null;
+                            @endphp
                             <div class="flex items-center space-x-4 text-sm">
                                 <a href="{{ route('auctions.show', $auction->id) }}"
                                     class="text-sm font-medium text-purple-600 hover:underline">Show</a>
                                 <form action="{{ route('close-open', $auction->id) }}" method="post">
                                     @csrf
                                     <button class="confirm text-sm font-medium text-purple-600 hover:underline" type="submit">
-                                        Close
+                                        {{ $isOpen ? 'Close' : 'Open' }}
                                     </button>
                                 </form>
                                 <form action="{{ route('auctions.destroy', $auction->id) }}" method="post">

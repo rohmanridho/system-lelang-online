@@ -127,7 +127,7 @@
                             @csrf
                             @method('delete')
                             <button type="submit" class="px-4 py-2.5 bg-white md:bg-purple-50 rounded-md">
-                                Cancel all bid
+                                Cancel bid
                             </button>
                         </form>
                         @endif

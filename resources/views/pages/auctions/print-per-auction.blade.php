@@ -30,9 +30,9 @@
             @endif
             @if ($auction->close)
             <div class="font-bold">Info pemenang:</div>
-            <p class="">Nama: {{ $auction->user->name }}</p>
-            <p class="">Telp: {{ $auction->user->telp ? $auction->user->telp : '-' }}</p>
-            <p class="">Email: {{ $auction->user->email }}</p>
+            <p class="">Nama: {{ $auction->user_id ? $auction->user->name : '-' }}</p>
+            <p class="">Telp: {{ $auction->user_id ? ($auction->user->telp ? $auction->user->telp : '-') : '-' }}</p>
+            <p class="">Email: {{ $auction->user_id ? $auction->user->email : '-' }}</p>
             @endif
         </div>
         <div class="w-full overflow-hidden border border-black">

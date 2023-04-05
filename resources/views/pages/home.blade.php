@@ -88,7 +88,7 @@
                                 <div class="mb-1 text-sm font-semibold text-purple-900/75">Pemenang</div>
                                 <div
                                     class="truncate rounded-l-md border-r bg-purple-50 py-2.5 px-4 text-slate-800 hover:bg-purple-100">
-                                    {{ $auction->user->name }}
+                                    {{ $auction->user_id ? $auction->user->name : '-' }}
                                 </div>
                             </div>
                             <div class="w-1/2">

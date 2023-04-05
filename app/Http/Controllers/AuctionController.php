@@ -120,13 +120,13 @@ class AuctionController extends Controller
                 'status' => 'close',
                 'close' => now()
             ]);
+        } else {
+            $auction->update([
+                'status' => 'open',
+                'open' => now(),
+                'close' => null,
+            ]);
         }
-        // else {
-        //     $auction->update([
-        //         'status' => 'open',
-        //         'close' => null
-        //     ]);
-        // }
         return redirect()->back();
     }
 
