@@ -15,7 +15,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::where('level', 'staff')->orWhere('level', 'public')->orderByDesc('level')->get();
+        $users = User::where('level', 'staff')->orWhere('level', 'public')->orderByDesc('level')->paginate(7);
         return view('pages.admin.users.index', [
             'users' => $users
         ]);

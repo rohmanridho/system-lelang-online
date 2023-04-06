@@ -16,13 +16,13 @@ class ItemController extends Controller
     public function index()
     {
         if (Auth::user()->level == 'admin') {
-            $items = Item::with(['auction.staff'])->get();
+            $items = Item::with(['auction.staff'])->paginate(7);
         }
 
         if (Auth::user()->level == 'staff') {
             $items = Item::with(['auction'])->whereHas('auction', function($auction){
                 $auction->where('staff_id', Auth::user()->id);
-            })->get();
+            })->paginate(7);
         }
 
         return view('pages.items.index', [

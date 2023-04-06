@@ -67,6 +67,9 @@
                     @endforeach
                 </tbody>
             </table>
+            <div class="px-4 py-3">
+                {{ $items->links() }}
+            </div>
         </div>
     </div>
     @else

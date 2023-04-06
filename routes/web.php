@@ -22,6 +22,8 @@ use App\View\Components\FrontendLayout;
 */
 
 Route::get('/', [FrontendController::class, 'index'])->name('home');
+Route::get('/auction-on', [FrontendController::class, 'auctionOn'])->name('auction-on');
+Route::get('/auction-end', [FrontendController::class, 'auctionEnd'])->name('auction-end');
 Route::get('/auction/{id}', [FrontendController::class, 'detail'])->name('detail');
 
 Route::middleware('auth')->group(function() {

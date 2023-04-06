@@ -10,8 +10,8 @@ use Illuminate\Support\Facades\Auth;
 class FrontendController extends Controller
 {
     public function index() {
-        $auctionsOn = Auction::with(['item'])->where('status', 'open')->get();
-        $auctionsEnd = Auction::with(['item'])->where('status', 'close')->get();
+        $auctionsOn = Auction::with(['item'])->where('status', 'open')->orderByDesc('id')->take(3)->get();
+        $auctionsEnd = Auction::with(['item'])->where('status', 'close')->orderByDesc('id')->take(3)->get();
         return view('pages.home', [
             'auctionsOn' => $auctionsOn,
             'auctionsEnd' => $auctionsEnd
@@ -126,4 +126,19 @@ class FrontendController extends Controller
             'auction' => $auction
         ]);
     }
+
+    public function auctionOn() {
+        $auctionsOn = Auction::with(['item'])->where('status', 'open')->orderByDesc('id')->get();
+        return view('pages.more.auction-on', [
+            'auctionsOn' => $auctionsOn,
+        ]);
+    }
+
+    public function auctionEnd() {
+        $auctionsEnd = Auction::with(['item'])->where('status', 'close')->orderByDesc('id')->get();
+        return view('pages.more.auction-end', [
+            'auctionsEnd' => $auctionsEnd
+        ]);
+    }
 }
+

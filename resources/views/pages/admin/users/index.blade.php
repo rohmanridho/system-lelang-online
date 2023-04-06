@@ -72,11 +72,11 @@
                     @endforeach
                 </tbody>
             </table>
-            @if ($users->count() >= 7)
+            {{-- @if ($users->count() >= 3) --}}
             <div class="px-4 py-3">
                 {{ $users->links() }}
             </div>
-            @endif
+            {{-- @endif --}}
         </div>
     </div>
 </div>
